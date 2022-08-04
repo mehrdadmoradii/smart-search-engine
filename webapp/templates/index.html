@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <main>
+        <div id="home-hero-container">
+            <div id="home-search-container">
+                <h1 id="home-logo" class="logo">search</h1>
+                <form action="/search" method="get" class="search-form" id="home-seach-form">
+                    <input type="text" name="query" id="query" placeholder="type your query" class="search-form-bar">
+                    <input type="submit" value="find" class="search-form-btn" id="home-search-btn">
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

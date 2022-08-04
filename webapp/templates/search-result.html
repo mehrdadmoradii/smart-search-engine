@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{query}}{% endblock %}
+
+{% block body %}
+    <nav>
+        <div class="nav-center">
+            <h1 id="nav-logo" class="logo">
+                <a href="/">search</a>
+            </h1>
+            <form action="/search" method="get" id="nav-search-bar" class="search-form">
+                <input type="text" name="query" id="query-input" placeholder="type your query" value="{{query}}" class="search-form-bar">
+                <button type="submit" class="search-form-btn">
+                    find
+                </button>
+            </form>
+        </div>
+    </nav>
+    <main>
+        {% for article in result %}
+            <div class="article">
+                <h2 class="article-title">
+                    <a href="{{ article['url'] }}">
+                        {{ article['article_title'] }}
+                    </a>
+                </h2>
+                <p class="article-url">{{ article['url'] }}</p>
+                <p class="article-summary">{{ article['highlight']|safe }}</p>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
